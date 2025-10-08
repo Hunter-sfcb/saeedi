@@ -1,0 +1,113 @@
+<!-- فایل mehr.html - ذخیره در ریشه -->
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پروژه مهر - مدرسه آیت‌الله سعیدی</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* استایل‌های مشابه index.html - برای اختصار، کپی از بالا، اما فقط بخش‌های لازم */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Vazirmatn', sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #FFFFFF 0%, #FFFACD 100%); }
+        header { background: linear-gradient(135deg, #87CEEB 0%, #FFFFFF 100%); color: #333; padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(135, 206, 235, 0.3); backdrop-filter: blur(10px); }
+        nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .logo { font-size: 1.8rem; font-weight: 700; color: #87CEEB; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { color: #333; text-decoration: none; transition: color 0.3s ease; }
+        .nav-links a:hover { color: #87CEEB; }
+        .blog-list-section { padding: 100px 2rem; max-width: 1200px; margin: 0 auto; background: rgba(255,255,255,0.8); border-radius: 30px; box-shadow: 0 15px 50px rgba(135, 206, 235, 0.15); }
+        .blog-list-section h2 { color: #87CEEB; text-align: center; font-size: 2.8rem; margin-bottom: 2rem; }
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .blog-item { background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255, 250, 205, 0.8) 100%); padding: 1.5rem; border-radius: 20px; box-shadow: 0 8px 30px rgba(135, 206, 235, 0.1); transition: all 0.4s ease; cursor: pointer; border: 1px solid rgba(135, 206, 235, 0.2); }
+        .blog-item:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(135, 206, 235, 0.3); }
+        .blog-img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 15px; margin-bottom: 1rem; }
+        .blog-title { color: #87CEEB; font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: 700; }
+        .blog-date { color: #666; font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .blog-desc { color: #333; font-size: 1rem; }
+        .btn { display: inline-block; background: #87CEEB; color: white; padding: 8px 20px; text-decoration: none; border-radius: 20px; font-weight: 600; margin-top: 1rem; transition: all 0.3s ease; }
+        .btn:hover { background: #5A9BD4; transform: translateY(-2px); }
+        @media (max-width: 768px) { .nav-links { display: none; } .blog-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">مدرسه آیت‌الله سعیدی - پروژه مهر</div>
+            <ul class="nav-links">
+                <li><a href="index.html">خانه</a></li>
+                <li><a href="index.html#about">درباره ما</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="blog-list-section">
+        <h2>لیست بلاگ‌های پروژه مهر</h2>
+        <div class="blog-grid">
+            <div class="blog-item" onclick="window.location.href='mehr_blog9.html'">
+                <img src="assets/img/mehr_blog9_1.jpg" alt="بلاگ ۹" class="blog-img">
+                <div class="blog-title">خرید تورهای جدید دروازه،والیبال و اقلام درخواستی دانش آموزان</div>
+                <div class="blog-date">۱۴۰۴/۰۷/۱۵</div>
+                <div class="blog-desc">تورهای ورزشی جدید برای ارتقای امکانات ورزشی دانش‌آموزان خریداری شد.</div>
+                <a href="mehr_blog9.html" class="btn">بخوانید</a>
+            </div>
+            <div class="blog-item" onclick="window.location.href='mehr_blog8.html'">
+                <img src="assets/img/mehr_blog8_1.jpg" alt="بلاگ ۸" class="blog-img">
+                <div class="blog-title">شناسایی نقاط آسیب پذیر</div>
+                <div class="blog-date">۱۴۰۴/۰۷/۱۳</div>
+                <div class="blog-desc">نقاط ضعیف مدرسه شناسایی و برنامه‌ریزی برای تعمیرات انجام شد.</div>
+                <a href="mehr_blog8.html" class="btn">بخوانید</a>
+            </div>
+            <div class="blog-item" onclick="window.location.href='mehr_blog7.html'">
+                <img src="assets/img/mehr_blog7_1.jpg" alt="بلاگ ۷" class="blog-img">
+                <div class="blog-title">شستشو و نظافت کلی کف و دیوارهای سرویس بهداشتی دانش آموزان.</div>
+                <div class="blog-date">۱۴۰۴/۰۷/۱۲</div>
+                <div class="blog-desc">نظافت کامل سرویس‌های بهداشتی برای بهداشت بهتر دانش‌آموزان.</div>
+                <a href="mehr_blog7.html" class="btn">بخوانید</a>
+            </div>
+            <div class="blog-item" onclick="window.location.href='mehr_blog6.html'">
+                <img src="assets/img/mehr_blog6_1.jpg" alt="بلاگ ۶" class="blog-img">
+                <div class="blog-title">تفاوت ورودی درب آموزشگاه و تابلوی مدرسه در سال جدید و سال گذشته</div>
+                <div class="blog-date">۱۴۰۴/۰۷/۰۹</div>
+                <div class="blog-desc">تغییرات ظاهری ورودی و تابلو برای سال تحصیلی جدید.</div>
+                <a href="mehr_blog6.html" class="btn">بخوانید</a>
+            </div>
+            <div class="blog-item" onclick="window.location.href='mehr_blog5.html'">
+                <img src="assets/img/mehr_blog5_1.jpg" alt="بلاگ ۵" class="blog-img">
+                <div class="blog-title">شستشوی صحن حیاط</div>
+                <div class="blog-date">۱۴۰۴/۰۷/۰۶</div>
+                <div class="blog-desc">شستشوی کامل حیاط مدرسه برای محیطی تمیز.</div>
+                <a href="mehr_blog5.html" class="btn">بخوانید</a>
+            </div>
+            <div class="blog-item" onclick="window.location.href='mehr_blog4.html'">
+                <img src="assets/img/mehr_blog4_1.jpg" alt="بلاگ ۴" class="blog-img">
+                <div class="blog-title">نصب کلید و پریزهای جدید</div>
+                <div class="blog-date">۱۴۰۴/۰۷/۰۳</div>
+                <div class="blog-desc">نصب تجهیزات الکتریکی جدید برای ایمنی بیشتر.</div>
+                <a href="mehr_blog4.html" class="btn">بخوانید</a>
+            </div>
+            <div class="blog-item" onclick="window.location.href='mehr_blog3.html'">
+                <img src="assets/img/mehr_blog3_1.jpg" alt="بلاگ ۳" class="blog-img">
+                <div class="blog-title">نصب تابلوی جدید آموزشگاه</div>
+                <div class="blog-date">۱۴۰۴/۰۷/۰۳</div>
+                <div class="blog-desc">تابلوی جدید برای معرفی بهتر مدرسه نصب شد.</div>
+                <a href="mehr_blog3.html" class="btn">بخوانید</a>
+            </div>
+            <div class="blog-item" onclick="window.location.href='mehr_blog2.html'">
+                <img src="assets/img/mehr_blog2_1.jpg" alt="بلاگ ۲" class="blog-img">
+                <div class="blog-title">تعمیر درب کلاس های طبقه بالا و نصب دستگیره های جدید</div>
+                <div class="blog-date">۱۴۰۴/۰۷/۰۱</div>
+                <div class="blog-desc">تعمیر درب‌ها و نصب دستگیره‌های مدرن برای راحتی.</div>
+                <a href="mehr_blog2.html" class="btn">بخوانید</a>
+            </div>
+            <div class="blog-item" onclick="window.location.href='mehr_blog1.html'">
+                <img src="assets/img/mehr_blog1_1.jpg" alt="بلاگ ۱" class="blog-img">
+                <div class="blog-title">آماده سازی کتاب های درسی جهت توزیع در روزهای ابتدایی ماه مهر</div>
+                <div class="blog-date">۱۴۰۴/۰۶/۲۸</div>
+                <div class="blog-desc">آماده‌سازی و توزیع کتاب‌های درسی برای شروع سال تحصیلی.</div>
+                <a href="mehr_blog1.html" class="btn">بخوانید</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
