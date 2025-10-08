@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدرسه آیت‌الله سعیدی - مشهد</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Vazirmatn', sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+            background: linear-gradient(135deg, #FFFFFF 0%, #FFFACD 100%); /* سفید به زرد کم‌رنگ */
+            transition: all 0.5s ease; 
+            overflow-x: hidden; 
+            position: relative; /* برای particles */
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="a" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="%2387CEEB" stop-opacity="0.1"/><stop offset="100%" stop-color="%23FFFACD" stop-opacity="0.05"/></radialGradient></defs><circle cx="20" cy="20" r="2" fill="url(%23a)" opacity="0.8"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="3s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="0 0;0 -10;0 0" dur="4s" repeatCount="indefinite"/></circle><circle cx="80" cy="80" r="1.5" fill="url(%23a)" opacity="0.6"><animate attributeName="opacity" values="0.6;0.1;0.6" dur="2.5s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="0 0;10 0;0 0" dur="5s" repeatCount="indefinite"/></circle></svg>') repeat;
+            pointer-events: none;
+            z-index: -1;
+            animation: particleFloat 20s linear infinite;
+        }
+        @keyframes particleFloat {
+            from { transform: translateY(0) rotate(0deg); }
+            to { transform: translateY(-100px) rotate(360deg); }
+        }
+        body.dark-mode { 
+            background: linear-gradient(135deg, #87CEEB 0%, #87CEFA 100%); /* آبی آسمانی در dark mode */
+            color: #333; 
+        }
+        body.dark-mode .card, body.dark-mode .about { background: rgba(255,255,255,0.1); color: #333; }
+        header { 
+            background: linear-gradient(135deg, #87CEEB 0%, #FFFFFF 100%); /* آبی آسمانی به سفید */
+            color: #333; 
+            padding: 1rem 0; 
+            position: fixed; 
+            width: 100%; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 4px 20px rgba(135, 206, 235, 0.3); /* سایه آبی آسمانی نرم */
+            backdrop-filter: blur(10px); /* blur مدرن */
+            animation: headerGlow 4s ease-in-out infinite alternate;
+        }
+        @keyframes headerGlow {
+            from { box-shadow: 0 4px 20px rgba(135, 206, 235, 0.3); }
+            to { box-shadow: 0 4px 30px rgba(135, 206, 235, 0.5); }
+        }
+        nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .logo { font-size: 1.8rem; font-weight: 700; color: #87CEEB; text-shadow: 0 2px 4px rgba(135, 206, 235, 0.2); animation: logoPulse 2s ease-in-out infinite; }
+        @keyframes logoPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        .nav-links { display: flex; list-style: none; gap: 2rem; align-items: center; }
+        .nav-links a { color: #333; text-decoration: none; transition: all 0.4s ease; position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: #87CEEB; transition: width 0.4s ease; }
+        .nav-links a:hover { color: #87CEEB; transform: translateY(-2px); }
+        .nav-links a:hover::after { width: 100%; }
+        #dark-toggle { background: rgba(255,255,255,0.2); border: none; color: #333; font-size: 1.2rem; cursor: pointer; transition: all 0.4s ease; border-radius: 50%; padding: 0.5rem; backdrop-filter: blur(5px); }
+        #dark-toggle:hover { transform: scale(1.2) rotate(180deg); background: #87CEEB; color: white; animation: spin 0.6s ease; }
+        @keyframes spin { 0% { transform: scale(1.2) rotate(0deg); } 100% { transform: scale(1.2) rotate(180deg); } }
+        .announcement { 
+            background: linear-gradient(135deg, #FFFACD 0%, #FFFFFF 100%); 
+            color: #87CEEB; 
+            padding: 1.5rem 2rem; 
+            margin: 80px 2rem 0; 
+            text-align: center; 
+            font-weight: 700; 
+            border-radius: 0 0 30px 30px; 
+            box-shadow: 0 6px 25px rgba(135, 206, 235, 0.2); 
+            position: relative; 
+            z-index: 999; 
+            display: none; 
+            animation: slideDownGlow 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+            backdrop-filter: blur(5px);
+            transition: all 0.5s ease;
+        }
+        .announcement:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px rgba(135, 206, 235, 0.3);
+        }
+        @keyframes slideDownGlow { from { transform: translateY(-100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .announcement.active { display: block; }
+        .announcement .banner { height: 120px; background: url('') center/cover; border-radius: 15px; margin-bottom: 0.5rem; box-shadow: inset 0 0 20px rgba(135, 206, 235, 0.1); animation: bannerFloat 3s ease-in-out infinite; }
+        @keyframes bannerFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+        .announcement a { color: #87CEEB; text-decoration: none; transition: all 0.4s ease; font-size: 1.1rem; }
+        .announcement a:hover { color: #333; transform: scale(1.05); text-shadow: 0 0 10px rgba(135, 206, 235, 0.5); }
+        .hero { 
+            background: linear-gradient(135deg, #87CEEB 0%, #FFFFFF 100%); /* آبی آسمانی به سفید */
+            color: #333; 
+            text-align: center; 
+            padding: 100px 2rem 100px; /* padding کمتر برای hero چون نوتیف بالاست */
+            margin-top: 0; /* margin-top حذف شد چون نوتیف fixed نیست، اما position relative */
+            position: relative; 
+            overflow: hidden; 
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); /* شکل خفن polygon */
+            animation: heroWave 8s ease-in-out infinite;
+        }
+        @keyframes heroWave {
+            0%, 100% { clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
+            50% { clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); }
+        }
+        .hero::before { 
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: url('assets/img/hero-bg.jpg') center/cover; 
+            opacity: 0.1; 
+            z-index: -1; 
+            animation: float 6s ease-in-out infinite; /* انیمیشن شناور */
+        }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
+        .carousel { 
+            position: relative; 
+            max-width: 1200px; 
+            margin: 0 auto 2rem; 
+            overflow: hidden; 
+            border-radius: 30px; 
+            box-shadow: 0 10px 40px rgba(135, 206, 235, 0.2);
+            aspect-ratio: 16 / 9; /* نسبت 16:9 دقیق */
+            transition: all 0.5s ease;
+        }
+        .carousel:hover {
+            box-shadow: 0 15px 50px rgba(135, 206, 235, 0.3);
+            transform: scale(1.02);
+        }
+        .carousel img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            display: none; 
+            filter: brightness(1.1); 
+            transition: all 0.5s ease; 
+        }
+        .carousel img.active { display: block; animation: zoomInFade 1.2s ease; }
+        @keyframes zoomInFade { from { opacity: 0; transform: scale(1.1); } to { opacity: 1; transform: scale(1); } }
+        .carousel .dots { display: flex; justify-content: center; gap: 12px; margin-top: 1rem; }
+        .carousel .dot { width: 14px; height: 14px; border-radius: 50%; background: rgba(135, 206, 235, 0.5); cursor: pointer; transition: all 0.4s ease; }
+        .carousel .dot.active, .carousel .dot:hover { background: #87CEEB; transform: scale(1.3); box-shadow: 0 0 10px rgba(135, 206, 235, 0.5); animation: dotPulse 1s ease infinite; }
+        @keyframes dotPulse { 0%, 100% { transform: scale(1.3); } 50% { transform: scale(1.5); } }
+        .hero h1 { 
+            font-size: 3.5rem; 
+            margin-bottom: 1rem; 
+            animation: glowBounce 3s ease-in-out infinite, fadeInUp 1s ease 0.5s both; 
+            opacity: 0; 
+            text-shadow: 0 0 20px rgba(135, 206, 235, 0.3); /* glow خفن */
+        }
+        @keyframes glowBounce {
+            0%, 100% { transform: translateY(0) scale(1); text-shadow: 0 0 20px rgba(135, 206, 235, 0.3); }
+            50% { transform: translateY(-20px) scale(1.05); text-shadow: 0 0 30px rgba(135, 206, 235, 0.6); }
+        }
+        .hero p { 
+            font-size: 1.3rem; 
+            margin-bottom: 2rem; 
+            opacity: 0.95; 
+            animation: fadeInUp 1s ease 1s both, textWave 4s ease-in-out infinite; 
+            opacity: 0; 
+            max-width: 600px; 
+            margin: 0 auto 2rem; 
+        }
+        @keyframes textWave {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-5px); }
+        }
+        .btn { 
+            display: inline-block; 
+            background: linear-gradient(135deg, #FFFACD 0%, #FFFFFF 100%); /* زرد کم‌رنگ به سفید */
+            color: #87CEEB; 
+            padding: 15px 40px; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: 700; 
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* طولانی‌تر و نرم‌تر */
+            box-shadow: 0 6px 25px rgba(255, 250, 205, 0.4); /* سایه زرد کم‌رنگ */
+            border: 2px solid rgba(135, 206, 235, 0.3); /* border آبی آسمانی */
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px) scale(0.9);
+            animation: pulseSlideUp 1.2s ease 1.5s both;
+        }
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(135, 206, 235, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+        .btn:hover::before {
+            left: 100%;
+        }
+        .btn:hover { 
+            transform: translateY(-8px) scale(1.08); /* نرم‌تر با scale بیشتر */
+            box-shadow: 0 15px 40px rgba(135, 206, 235, 0.5); /* سایه بزرگ‌تر */
+            background: linear-gradient(135deg, #FFFFFF 0%, #FFFACD 100%);
+            border-color: #87CEEB;
+            animation: btnRipple 0.8s ease;
+        }
+        @keyframes btnRipple {
+            0% { box-shadow: 0 6px 25px rgba(255, 250, 205, 0.4); }
+            50% { box-shadow: 0 20px 50px rgba(135, 206, 235, 0.6); }
+            100% { box-shadow: 0 15px 40px rgba(135, 206, 235, 0.5); }
+        }
+        @keyframes pulseSlideUp {
+            0% { opacity: 0; transform: translateY(30px) scale(0.9); }
+            50% { transform: translateY(-5px) scale(1.05); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .btn-primary { background: linear-gradient(135deg, #87CEEB 0%, #87CEFA 100%); color: white; border-color: rgba(255, 250, 205, 0.3); }
+        .btn-primary:hover { box-shadow: 0 15px 40px rgba(255, 250, 205, 0.5); }
+        section { padding: 100px 2rem; max-width: 1200px; margin: 0 auto; opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        section.visible { opacity: 1; transform: translateY(0); }
+        .about { 
+            background: rgba(255,255,255,0.8); 
+            text-align: center; 
+            border-radius: 30px; 
+            padding: 3rem; 
+            box-shadow: 0 15px 50px rgba(135, 206, 235, 0.15); 
+            backdrop-filter: blur(10px); 
+            border: 1px solid rgba(135, 206, 235, 0.2);
+            animation: aboutFadeIn 2s ease both;
+        }
+        @keyframes aboutFadeIn {
+            0% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .about h2 { color: #87CEEB; font-size: 2.8rem; margin-bottom: 2rem; animation: fadeInUp 1s ease both; text-shadow: 0 2px 10px rgba(135, 206, 235, 0.1); }
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
+        .card { 
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255, 250, 205, 0.8) 100%); 
+            padding: 2.5rem; 
+            border-radius: 25px; 
+            box-shadow: 0 8px 30px rgba(135, 206, 235, 0.1); 
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* نرم‌تر */
+            cursor: pointer; 
+            opacity: 0; 
+            transform: translateY(40px) rotateX(10deg); /* 3D effect خفن */
+            border: 1px solid rgba(135, 206, 235, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(135, 206, 235, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .card:hover::before {
+            opacity: 1;
+            animation: cardRipple 0.7s ease;
+        }
+        @keyframes cardRipple {
+            0% { transform: scale(0); }
+            100% { transform: scale(1); }
+        }
+        .card:nth-child(1) { animation: slideUp3D 1s ease 0.2s both; }
+        .card:nth-child(2) { animation: slideUp3D 1s ease 0.4s both; }
+        .card:nth-child(3) { animation: slideUp3D 1s ease 0.6s both; }
+        @keyframes slideUp3D {
+            to { 
+                opacity: 1; 
+                transform: translateY(0) rotateX(0deg); 
+            }
+        }
+        .card:hover { 
+            transform: translateY(-12px) rotateX(0deg) scale(1.04); /* نرم‌تر */
+            box-shadow: 0 25px 70px rgba(135, 206, 235, 0.4); 
+            background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255, 250, 205, 0.9) 100%);
+            animation: cardLift 0.6s ease;
+        }
+        @keyframes cardLift {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-12px) scale(1.04); }
+        }
+        .card h3 { color: #87CEEB; margin-bottom: 1rem; font-size: 1.4rem; transition: color 0.4s ease; }
+        .card:hover h3 { color: #FFFFFF; text-shadow: 0 0 10px rgba(135, 206, 235, 0.7); }
+        .sub-options { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
+        .sub-btn { 
+            display: block; 
+            background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255, 250, 205, 0.7) 100%); 
+            color: #87CEEB; 
+            padding: 10px 20px; 
+            text-decoration: none; 
+            border-radius: 20px; 
+            font-weight: 600; 
+            text-align: center; 
+            transition: all 0.4s ease; 
+            border: 1px solid rgba(135, 206, 235, 0.3); 
+        }
+        .sub-btn:hover { 
+            transform: translateX(-5px); 
+            box-shadow: 0 5px 15px rgba(135, 206, 235, 0.3); 
+            background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255, 250, 205, 0.9) 100%);
+        }
+        .coming-soon { opacity: 0.7; font-style: italic; color: #87CEEB; }
+        footer { 
+            background: linear-gradient(135deg, #FFFFFF 0%, #87CEEB 100%); 
+            color: #333; 
+            text-align: center; 
+            padding: 2.5rem; 
+            margin-top: 5rem; 
+            box-shadow: 0 -4px 20px rgba(135, 206, 235, 0.2); 
+            animation: footerSlideUp 1.5s ease both;
+        }
+        @keyframes footerSlideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .loading { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: rgba(255, 255, 255, 0.9); /* شفاف با rgba */
+            backdrop-filter: blur(5px); /* blur برای دیدن زیر */
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            z-index: 9999; 
+            transition: opacity 0.8s ease, visibility 0.8s ease; 
+            opacity: 1;
+            visibility: visible;
+        }
+        .loading.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .spinner { 
+            border: 4px solid rgba(135, 206, 235, 0.3); 
+            border-top: 4px solid #87CEEB; 
+            border-radius: 50%; 
+            width: 60px; 
+            height: 60px; 
+            animation: spinGlow 1.2s linear infinite; 
+            margin-bottom: 2rem;
+        }
+        @keyframes spinGlow { 
+            0% { transform: rotate(0deg); box-shadow: 0 0 20px rgba(135, 206, 235, 0.5); } 
+            100% { transform: rotate(360deg); box-shadow: 0 0 30px rgba(135, 206, 235, 0.8); } 
+        }
+        .progress-container {
+            width: 300px;
+            height: 8px;
+            background: rgba(135, 206, 235, 0.3);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(135deg, #87CEEB 0%, #FFFFFF 100%);
+            width: 0%;
+            transition: width 0.3s ease;
+            border-radius: 4px;
+            animation: progressGlow 0.5s ease-in-out infinite alternate;
+        }
+        @keyframes progressGlow {
+            from { box-shadow: 0 0 5px rgba(135, 206, 235, 0.5); }
+            to { box-shadow: 0 0 10px rgba(135, 206, 235, 0.8); }
+        }
+        .progress-text {
+            font-size: 1.2rem;
+            color: #87CEEB;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 768px) { 
+            .nav-links { display: none; } 
+            .hero h1 { font-size: 2.5rem; } 
+            .cards { grid-template-columns: 1fr; gap: 1.5rem; } 
+            .hero { clip-path: none; padding: 80px 1rem 60px; }
+            .announcement { margin: 80px 1rem 0; padding: 1rem 1.5rem; }
+            .progress-container { width: 250px; }
+            .sub-options { gap: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <div class="progress-text" id="progress-text">0%</div>
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">مدرسه آیت‌الله سعیدی</div>
+            <ul class="nav-links">
+                <li><a href="#home">خانه</a></li>
+                <li><a href="#about">درباره ما</a></li>
+                <li><a href="blog.html">بلاگ</a></li>
+                <li><a href="eter.html">پنل ادمین</a></li>
+                <li><a href="#contact">تماس</a></li>
+                <button id="dark-toggle">🌙</button>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="announcement" class="announcement">
+        <div class="banner" id="announcement-banner"></div>
+        <a href="#" id="announcement-link">اطلاعات آزمون سنجش</a>
+        <div class="info-section">
+            <p>جزئیات بیشتر: زمان برگزاری ۱۵ مهر، ثبت‌نام آنلاین.</p>
+        </div>
+    </div>
+
+    <section id="home" class="hero">
+        <div class="carousel">
+            <img src="assets/img/banner1.jpg" alt="بنر ۱" class="active">
+            <img src="assets/img/banner2.jpg" alt="بنر ۲">
+            <img src="assets/img/banner3.jpg" alt="بنر ۳">
+            <div class="dots">
+                <span class="dot active" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+        <h1>به مدرسه آیت‌الله سعیدی خوش آمدید</h1>
+        <p>مدرسه‌ای مدرن برای آینده‌ای درخشان – جایی که دانش و خلاقیت با هم ملاقات می‌کنند.</p>
+        <a href="#about" class="btn">بیشتر بدانید</a>
+    </section>
+
+    <section id="about" class="about">
+        <h2>درباره مدرسه ما</h2>
+        <p>مدرسه آیت‌الله سعیدی متوسطه اول، واقع در خراسان رضوی، مشهد، کسایی ۱، یکی از بهترین مدارس متوسطه اول پسرانه است. ما بر آموزش با کیفیت، فناوری پیشرفته و پرورش استعدادها تمرکز داریم.</p>
+        <div class="cards">
+            <div class="card">
+                <h3>اطلاعات و اعلانات</h3>
+                <p>به‌روزرسانی‌های روزانه مدرسه و اعلانات مهم.</p>
+                <div class="sub-options">
+                    <a href="mehr.html" class="sub-btn">پروژه مهر</a>
+                    <a href="#" class="sub-btn coming-soon" onclick="alert('بزودی...')">همایش‌ها</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; ۱۴۰۴ مدرسه آیت‌الله سعیدی. همه حقوق محفوظ است.</p>
+    </footer>
+
+    <script>
+        // Loading screen با درصد
+        let progress = 0;
+        const progressBar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
+        const loading = document.getElementById('loading');
+
+        const interval = setInterval(() => {
+            progress += Math.random() * 10; // افزایش تصادفی برای طبیعی‌تر
+            if (progress > 100) progress = 100;
+            progressBar.style.width = progress + '%';
+            progressText.textContent = Math.floor(progress) + '%';
+            if (progress >= 100) {
+                clearInterval(interval);
+                setTimeout(() => {
+                    loading.classList.add('hidden');
+                }, 500); // delay برای دیدن 100%
+            }
+        }, 200); // هر 200ms آپدیت
+
+        // Dark mode
+        const toggle = document.getElementById('dark-toggle');
+        toggle.addEventListener('click', () => { 
+            document.body.classList.toggle('dark-mode'); 
+            toggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙'; 
+        });
+
+        // Announcement from localStorage
+        window.addEventListener('load', () => {
+            const text = localStorage.getItem('announcement');
+            const url = localStorage.getItem('announcementLink');
+            const bannerUrl = localStorage.getItem('announcementBanner');
+            if (text && url) {
+                document.getElementById('announcement').classList.add('active');
+                document.getElementById('announcement-link').textContent = text;
+                document.getElementById('announcement-link').href = url;
+                if (bannerUrl) document.getElementById('announcement-banner').style.backgroundImage = `url('${bannerUrl}')`;
+            }
+        });
+
+        // Carousel
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        function currentSlide(n) { showSlides(slideIndex = n); }
+        function showSlides(n) {
+            const slides = document.querySelectorAll('.carousel img');
+            const dots = document.querySelectorAll('.dot');
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            slides[n-1].classList.add('active');
+            dots[n-1].classList.add('active');
+        }
+        setInterval(() => { 
+            slideIndex++; 
+            if (slideIndex > 3) slideIndex = 1; 
+            showSlides(slideIndex); 
+        }, 6000);
+
+        // Scroll animations
+        const observer = new IntersectionObserver(entries => { 
+            entries.forEach(entry => { 
+                if (entry.isIntersecting) entry.target.classList.add('visible'); 
+            }); 
+        });
+        document.querySelectorAll('section').forEach(sec => observer.observe(sec));
+    </script>
+</body>
+</html>
+
