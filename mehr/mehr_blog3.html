@@ -1,53 +1,55 @@
+<!-- فایل mehr_blog3.html -->
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مدرسه آیت‌الله سعیدی</title>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        /* استایل‌های مشابه mehr.html */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Vazirmatn', sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #FFFFFF 0%, #FFFACD 100%); }
-        header { background: linear-gradient(135deg, #87CEEB 0%, #FFFFFF 100%); color: #333; padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(135, 206, 235, 0.3); backdrop-filter: blur(10px); }
-        nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-        .logo { font-size: 1.8rem; font-weight: 700; color: #87CEEB; }
-        .nav-links { display: flex; list-style: none; gap: 2rem; }
-        .nav-links a { color: #333; text-decoration: none; transition: color 0.3s ease; }
-        .nav-links a:hover { color: #87CEEB; }
-        .post-content { max-width: 800px; margin: 100px auto 2rem; padding: 2rem; background: rgba(255,255,255,0.9); border-radius: 30px; box-shadow: 0 15px 50px rgba(135, 206, 235, 0.15); }
-        .post-title { color: #87CEEB; font-size: 2.5rem; margin-bottom: 1rem; text-align: center; }
-        .post-date { color: #666; text-align: center; margin-bottom: 2rem; font-size: 1.1rem; }
-        .post-text { margin-bottom: 2rem; text-align: justify; }
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
-        .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 15px; transition: transform 0.3s ease; }
-        .gallery img:hover { transform: scale(1.05); }
-        .btn { display: inline-block; background: #87CEEB; color: white; padding: 12px 30px; text-decoration: none; border-radius: 25px; font-weight: 700; margin: 0 auto; display: block; text-align: center; transition: all 0.3s ease; }
-        .btn:hover { background: #5A9BD4; transform: translateY(-2px); }
-        @media (max-width: 768px) { .nav-links { display: none; } .post-content { margin: 80px 1rem 1rem; padding: 1.5rem; } }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بلاگ ۳ - مدرسه آیت‌الله سعیدی</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* استایل‌های مشابه mehr.html */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Vazirmatn', sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #FFFFFF 0%, #FFFACD 100%); }
+        header { background: linear-gradient(135deg, #87CEEB 0%, #FFFFFF 100%); color: #333; padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(135, 206, 235, 0.3); backdrop-filter: blur(10px); }
+        nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .logo { font-size: 1.8rem; font-weight: 700; color: #87CEEB; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { color: #333; text-decoration: none; transition: color 0.3s ease; }
+        .nav-links a:hover { color: #87CEEB; }
+        .post-content { max-width: 800px; margin: 100px auto 2rem; padding: 2rem; background: rgba(255,255,255,0.9); border-radius: 30px; box-shadow: 0 15px 50px rgba(135, 206, 235, 0.15); }
+        .post-title { color: #87CEEB; font-size: 2.5rem; margin-bottom: 1rem; text-align: center; }
+        .post-date { color: #666; text-align: center; margin-bottom: 2rem; font-size: 1.1rem; }
+        .post-text { margin-bottom: 2rem; text-align: justify; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+        .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 15px; transition: transform 0.3s ease; }
+        .gallery img:hover { transform: scale(1.05); }
+        .btn { display: inline-block; background: #87CEEB; color: white; padding: 12px 30px; text-decoration: none; border-radius: 25px; font-weight: 700; margin: 0 auto; display: block; text-align: center; transition: all 0.3s ease; }
+        .btn:hover { background: #5A9BD4; transform: translateY(-2px); }
+        @media (max-width: 768px) { .nav-links { display: none; } .post-content { margin: 80px 1rem 1rem; padding: 1.5rem; } }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">مدرسه آیت‌الله سعیدی </div>
-            <ul class="nav-links">
-                <li><a href="../index.html">خانه</a></li>
-                <li><a href="../mehr.html">پروژه مهر</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header>
+        <nav>
+            <div class="logo">مدرسه آیت‌الله سعیدی - بلاگ</div>
+            <ul class="nav-links">
+                <li><a href="../index.html">خانه</a></li>
+                <li><a href="../mehr.html">پروژه مهر</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="post-content">
-        <h1 class="post-title">نصب تابلوی جدید آموزشگاه</h1>
-        <div class="post-date">۱۴۰۴/۰۷/۰۳</div>
-        <div class="post-text">
-            
-        </div>
-        <div class="gallery">
-            <img src="../assets/img/mehr_blog3_1.jpg" alt="عکس ۱">
-        </div>
-        <a href="../mehr.html" class="btn">بازگشت به لیست</a>
-    </div>
+    <div class="post-content">
+        <h1 class="post-title">نصب تابلوی جدید آموزشگاه</h1>
+        <div class="post-date">۱۴۰۴/۰۷/۰۳</div>
+        <div class="post-text">
+            <p>در این پست، جزئیات نصب تابلوی جدید مدرسه توضیح داده شده است. تابلو با طراحی مدرن و اطلاعات به‌روز برای معرفی بهتر مدرسه نصب شد.</p>
+            <p>این فعالیت بخشی از پروژه مهر برای بهبود ظاهر مدرسه است.</p>
+        </div>
+        <div class="gallery">
+            <img src="../assets/img/mehr_blog3_1.jpg" alt="عکس ۱">
+        </div>
+        <a href="../mehr.html" class="btn">بازگشت به لیست</a>
+    </div>
 </body>
 </html>
